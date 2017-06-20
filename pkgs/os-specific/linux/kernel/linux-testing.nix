@@ -1,8 +1,8 @@
 { stdenv, fetchurl, perl, buildLinux, ... } @ args:
 
 import ./generic.nix (args // rec {
-  version = "4.12-rc5";
-  modDirVersion = "4.12.0-rc5";
+  version = "4.12-rc6";
+  modDirVersion = "4.12.0-rc6";
   extraMeta.branch = "4.12";
 
   src = fetchurl {
