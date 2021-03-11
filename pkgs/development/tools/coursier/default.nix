@@ -1,8 +1,18 @@
-{ lib, stdenv, fetchurl, makeWrapper, jre, writeScript, common-updater-scripts
-, coreutils, git, gnused, nix, nixfmt }:
-
+{ lib
+, stdenv
+, fetchurl
+, makeWrapper
+, jre
+, writeScript
+, common-updater-scripts
+, coreutils
+, git
+, gnused
+, nix
+, nixfmt
+}:
 let
-  version = "2.0.12";
+  version = "2.0.13";
 
   zshCompletion = fetchurl {
     url =
@@ -11,7 +21,8 @@ let
   };
 
   repo = "git@github.com:coursier/coursier.git";
-in stdenv.mkDerivation rec {
+in
+stdenv.mkDerivation rec {
   inherit version;
 
   pname = "coursier";
@@ -19,7 +30,7 @@ in stdenv.mkDerivation rec {
   src = fetchurl {
     url =
       "https://github.com/coursier/coursier/releases/download/v${version}/coursier";
-    sha256 = "sha256-SLl8pXGl9612FDEOy1vz/mXTb3+7YAJ/wq/njBL+V+I=";
+    sha256 = "sha256-3FdvoSH/6MZK6KEImXsFteaCoTLO0unK6dp7t+snVt4=";
   };
 
   nativeBuildInputs = [ makeWrapper ];
