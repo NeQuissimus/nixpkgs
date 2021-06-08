@@ -1,5 +1,17 @@
-{ lib, stdenv, fetchurl, jre, nixosTests, writeScript, common-updater-scripts, git
-, nixfmt, nix, coreutils, gnused, disableRemoteLogging ? true }:
+{ lib
+, stdenv
+, fetchurl
+, jre
+, nixosTests
+, writeScript
+, common-updater-scripts
+, git
+, nixfmt
+, nix
+, coreutils
+, gnused
+, disableRemoteLogging ? true
+}:
 
 with lib;
 
@@ -9,7 +21,7 @@ let
   common = { scalaVersion, sha256 }:
     stdenv.mkDerivation rec {
       pname = "ammonite";
-      version = "2.3.8";
+      version = "2.4.0";
 
       src = fetchurl {
         url =
@@ -72,13 +84,14 @@ let
         maintainers = [ maintainers.nequissimus ];
       };
     };
-in {
+in
+{
   ammonite_2_12 = common {
     scalaVersion = "2.12";
     sha256 = "1kzk0437h2wd9jhwkvjkiaj6mscz4bh85iv266x9zz4zssb355hs";
   };
   ammonite_2_13 = common {
     scalaVersion = "2.13";
-    sha256 = "0js84m6yqjd7d77md38z6nk3qzlm1ms8brzczaw05zq2c90pdbz7";
+    sha256 = "sha256-2F35qhWI6hNb+Eh9ZTDznqo116yN7MZIGVchaAIM36A=";
   };
 }
