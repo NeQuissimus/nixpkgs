@@ -1,8 +1,13 @@
-{ lib, fetchFromGitHub, stdenv, autoreconfHook
+{ lib
+, fetchFromGitHub
+, stdenv
+, autoreconfHook
 , ncurses
 , IOKit
-, sensorsSupport ? stdenv.isLinux, lm_sensors
-, systemdSupport ? stdenv.isLinux, systemd
+, sensorsSupport ? stdenv.isLinux
+, lm_sensors
+, systemdSupport ? stdenv.isLinux
+, systemd
 }:
 
 with lib;
@@ -11,13 +16,13 @@ assert systemdSupport -> stdenv.isLinux;
 
 stdenv.mkDerivation rec {
   pname = "htop";
-  version = "3.0.5";
+  version = "3.1.0";
 
   src = fetchFromGitHub {
     owner = "htop-dev";
     repo = pname;
     rev = version;
-    sha256 = "sha256-9zecDd3oZ24RyOLnKdJmR29Chx6S24Kvuf/F7RYzl4I=";
+    sha256 = "sha256-/48Ca7JPzhPS4eYsPbwbSVcx9aS1f0LHcqsbNVWL+9k=";
   };
 
   nativeBuildInputs = [ autoreconfHook ];
